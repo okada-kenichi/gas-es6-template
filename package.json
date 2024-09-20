@@ -1,0 +1,17 @@
+{
+    "name": "gas-es6-template",
+    "version": "1.0.0",
+    "description": "Google Apps Script project using modern JavaScript (ES6+) with Babel and Clasp.",
+    "scripts": {
+        "build": "babel src --out-dir dist && copyfiles ./appsscript.json dist && sed -i '' 's/\"timeZone\":.*/\"timeZone\": \"Asia\\/Tokyo\",/' dist/appsscript.json && node update-clasp.js",
+        "watch": "watch 'npm run build' src",
+        "push": "clasp push"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.0.0",
+        "@babel/core": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
+        "copyfiles": "^2.4.1",
+        "watch": "^0.13.0"
+    }
+}
